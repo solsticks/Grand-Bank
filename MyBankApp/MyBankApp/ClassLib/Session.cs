@@ -74,6 +74,7 @@ namespace BankAppTest
                     {
                         type = Banks.accounts[i].type,                        
                         Owner = Banks.accounts[i].Owner
+                        
                     };
                     AccNum = Banks.accounts[i].Number;
                 }

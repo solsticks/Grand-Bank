@@ -26,6 +26,7 @@ namespace MyBankApp
                 decimal balance = 0;
                 foreach (var transact in Banks.allTransactions)
                 {
+                    if(this.Number == transact.account.Number)
                     balance += transact.Amount;
                 }
                 return balance;
@@ -46,6 +47,7 @@ namespace MyBankApp
             MakeDeposit(initialBalance, DateTime.Now, "This is the initial balnce");
             this.Number = AccountNumberSeed.ToString();
             AccountNumberSeed++;
+            Banks.accounts.Add(this);
         }
 
         public void MakeDeposit(decimal amount, DateTime date, string note)
