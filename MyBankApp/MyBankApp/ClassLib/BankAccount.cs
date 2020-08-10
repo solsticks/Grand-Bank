@@ -9,7 +9,7 @@ namespace MyBankApp
         Savings,
         Current
     }
-    class BankAccount
+   public class BankAccount
     {
         public string Number { get; }
         public Customer Owner { get; }

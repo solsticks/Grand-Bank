@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MyBankApp
 {
-    class Customer
+   public class Customer
     {
         public string Name { get; set; }
         public string email { get; set; }
