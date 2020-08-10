@@ -103,5 +103,36 @@ namespace BankAppTest
                 ()=> cus.Account.MakeWithdrawal(1910, AccountType.Savings, DateTime.Now, "You should have an error")
                 );
         }
+        [Test]
+        public void TestForCustomerReg()
+        {
+            //Arrange
+            var cus3 = new Customer("David", "david@mail.com");
+            var sut = new BankAccount(AccountType.Savings, 2000, cus3);
+
+            var name = "David";
+            //var cus2 = new Customer("Seun", "seun@mail");
+            //var sut2 = new BankAccount(AccountType.Current, 2000, cus2);
+            //Act
+            //for (int i = 0; i < Banks.accounts.Count; i++)
+            //{
+            //    Console.WriteLine(Banks.accounts[i].Owner.Name);
+            //    Console.WriteLine(Banks.accounts[i].Number);
+            //    Console.WriteLine(Banks.accounts[i].Owner.email);
+
+               
+            //}
+            Assert.That(name, Is.EqualTo(Banks.accounts[0].Owner.Name));
+        }
+        [Test]
+        public void TestforLogging()
+        {
+            //Arrange
+            Session.Register("sola", "sola@mail.com", "sola", "12345", AccountType.Savings, 2000);
+            var sut = Session.Login("sola@mail.com", "12345");
+
+            //Assert
+            Assert.That(sut, Is.Not.EqualTo(null));
+        }
     }
 }

@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\MyBankApp",
-    "\\MyBankApp\\MyBankApp"
+    "\\MyBankApp\\MyBankApp",
+    "\\MyBankApp\\MyBankApp\\ClassLib"
   ],
+  "SelectedNode": "\\MyBankApp\\MyBankApp\\bankapp_refactored_week4.sln",
   "PreviewInSolutionExplorer": false
 }
