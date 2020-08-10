@@ -12,6 +12,7 @@ namespace MyBankApp
         static void Main(string[] args)
         {
             bool response = true;
+            Customer customer = null;
             while (response)
             {
                 Console.WriteLine("-------------------------------");
@@ -44,7 +45,7 @@ namespace MyBankApp
                     var typeOfAccount = Int32.Parse(Console.ReadLine());
                     if (typeOfAccount == 1)
                     {
-                        var customer = new Customer(userName, email);
+                         customer = new Customer(userName, email);
                         var loging1 = new LoggingDetails();
                         
                         Console.WriteLine("To activate your account you need to make a deposit: ");
@@ -95,22 +96,22 @@ namespace MyBankApp
                     }
                     
                 }
-                if (reply == 2)
-                {
-                    bool loggedIn = false;
-                    var loging = new LoggingDetails();
+            //    if (reply == 2)
+            //     {
+            //         bool loggedIn = false;
+            //         var loging = new LoggingDetails();
                     
-                    Console.WriteLine(" Enter userName (Your name is also your username) : ");
-                    var email = Console.ReadLine();
-                    Console.WriteLine("Enter your email: ");
-                    var mail = Console.ReadLine();
-                    Console.WriteLine("Enter your Pin code: ");
-                    var pinCode = Int32.Parse(Console.ReadLine());
+            //         Console.WriteLine(" Enter userName (Your name is also your username) : ");
+            //         var email = Console.ReadLine();
+            //         Console.WriteLine("Enter your email: ");
+            //         var mail = Console.ReadLine();
+            //         Console.WriteLine("Enter your Pin code: ");
+            //         var pinCode = Int32.Parse(Console.ReadLine());
                    
-                }
+            //     } 
                 
 
-                response = false;
+            //     response = false;
 
             }
            
