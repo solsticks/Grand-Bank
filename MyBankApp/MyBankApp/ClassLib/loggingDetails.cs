@@ -6,7 +6,10 @@ namespace MyBankApp
 {
     public class LoggingDetails
     {
-        public string username { get; }
-        public string password { get;  }
+        public static string Email { get; set; }
+        public static string Password { get; set; }
+        public static string Id { get; set; }
+
+
     }
 }

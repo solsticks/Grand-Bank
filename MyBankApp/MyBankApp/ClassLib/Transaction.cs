@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MyBankApp
 {
-    class Transaction
+    public class Transaction
     {
         public decimal Amount { get; }
         public DateTime Date { get; }

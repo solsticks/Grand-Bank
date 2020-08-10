@@ -34,7 +34,7 @@ namespace BankAppTest
             var sut = new BankAccount(AccountType.Savings, 2000, cus);
             //Assert
             Assert.Throws<ArgumentOutOfRangeException>(
-                ()=> sut.MakeDeposit(-2000, DateTime.Now, "xyxyxyxy")
+                ()=> sut.MakeDeposit(-2000, DateTime.Now, "this should an error")
                 );
         }
 

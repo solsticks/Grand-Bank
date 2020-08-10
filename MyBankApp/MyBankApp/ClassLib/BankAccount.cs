@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
+
+
 namespace MyBankApp
 {
     public enum AccountType
@@ -12,7 +14,7 @@ namespace MyBankApp
    public class BankAccount
     {
         public string Number { get; }
-        public Customer Owner { get; }
+        public Customer Owner { get; set; }
         public AccountType type { get; set; }
 
         
@@ -22,7 +24,7 @@ namespace MyBankApp
             get
             {
                 decimal balance = 0;
-                foreach (var transact in allTransactions)
+                foreach (var transact in Banks.allTransactions)
                 {
                     balance += transact.Amount;
                 }
@@ -31,9 +33,12 @@ namespace MyBankApp
         }
         
         private static int  AccountNumberSeed = 1013456210;
-        private List<Transaction> allTransactions = new List<Transaction>();
 
-        
+
+        public BankAccount()
+        {
+
+        }
         public BankAccount(AccountType type, decimal initialBalance, Customer customer)
         {
             this.Owner = customer;
@@ -47,7 +52,7 @@ namespace MyBankApp
         {
             if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be positive");
             var deposit = new Transaction(amount, date, note, this.Owner, this);
-            allTransactions.Add(deposit);
+            Banks.allTransactions.Add(deposit);
         }
         public void MakeWithdrawal(decimal amount, AccountType accountType, DateTime date, string note)
         {
@@ -56,7 +61,7 @@ namespace MyBankApp
             if (accountType == AccountType.Current && balance - amount < 1000) throw new InvalidOperationException("You have Insufficient funds");
             
             var withdrawal = new Transaction(-amount, date, note, this.Owner, this);
-            allTransactions.Add(withdrawal);
+            Banks.allTransactions.Add(withdrawal);
         }
 
         public void Transfer(BankAccount reciverAccount,AccountType type, decimal amount, DateTime date, string note)
@@ -68,7 +73,7 @@ namespace MyBankApp
         {
             var history = new StringBuilder();
             history.AppendLine("Fullname\t\tAccount Number\t\tType\t\tAmount\t\tBalance\t\tNote\t\tDate");
-            foreach (var item in allTransactions)
+            foreach (var item in Banks.allTransactions)
             {
                 _ = history.AppendLine($"{item.Customer.Name}\t\t{item.Customer.Account.Number}\t\t" +
                     $"{item.Customer.Account.type}\t\t{item.Amount}\t\t{item.account.balance}\t\t{item.Notes}\t\t{item.Date.ToShortDateString()}");

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyBankApp\MyBankApp.csproj" />
+    <ProjectReference Include="..\MyBankApp\bankapp_refactored_week4.csproj" />
   </ItemGroup>
 
 </Project>

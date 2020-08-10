@@ -14,11 +14,12 @@ namespace MyBankApp
             var cus = new Customer("David", "david@mail.com");
             var sut = new BankAccount(AccountType.Savings, 2000, cus);
 
-            Console.WriteLine(cus.Account.balance);
-            var cus2 = new Customer("Tosin", "tosin@mail.com");
-            var sut2 = new BankAccount(AccountType.Current, 2000, cus2);
+            Console.WriteLine(cus.Account.TransactionHistory()); 
+            //Console.WriteLine(cus.Account.balance);
+            //var cus2 = new Customer("Tosin", "tosin@mail.com");
+            //var sut2 = new BankAccount(AccountType.Current, 2000, cus2);
 
-            cus.Account.Transfer(cus2.Account, AccountType.Savings, 500, DateTime.Now, "svjsdvsdh");
+            //cus.Account.Transfer(cus2.Account, AccountType.Savings, 500, DateTime.Now, "svjsdvsdh");
 
             bool response = true;
             Customer customer = null;
