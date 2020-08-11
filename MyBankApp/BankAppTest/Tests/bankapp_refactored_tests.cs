@@ -26,7 +26,7 @@ namespace BankAppTest
         }
 
         [Test]
-        public void InitialDepositTest()// This test for the amount I want to deposit. It is suppose to throw an exception if it is negative amount.
+        public void NegativeDepositTest()// This test for the amount I want to deposit. It is suppose to throw an exception if it is negative amount.
         {
             //Arrange
             var cus = new Customer("David", "david@mail.com");
