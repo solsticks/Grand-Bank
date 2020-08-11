@@ -68,6 +68,10 @@ namespace MyBankApp
 
         public void Transfer(BankAccount reciverAccount,AccountType type, decimal amount, DateTime date, string note)
         {
+            if (reciverAccount.Number == this.Number)
+            {
+                throw new AccessViolationException("You cannot transfer to yourself");
+            }
             reciverAccount.MakeDeposit(amount, date, note);
             this.MakeWithdrawal(amount, type, date, note);        
         }

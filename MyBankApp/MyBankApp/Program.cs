@@ -14,7 +14,7 @@ namespace MyBankApp
             var cus = new Customer("David", "david@mail.com");
             var sut = new BankAccount(AccountType.Savings, 2000, cus);
             cus.Account.MakeDeposit(200, DateTime.Now, "hdbjhdbj");
-            Console.WriteLine(cus.Account.balance);
+            //Console.WriteLine(cus.Account.balance);
 
 
             var cus2 = new Customer("Seun", "seun@mail");

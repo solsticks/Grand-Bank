@@ -89,6 +89,23 @@ namespace BankAppTest
         }
 
         [Test]
+        public void Transfer_Test_To_The_Sending_Account()// This checks if you try to transfer funds to yourself and breaks
+        {
+            //Arrange
+            var cus = new Customer("David", "david@mail.com");
+            var sut = new BankAccount(AccountType.Savings, 2000, cus);
+
+            
+            //Act
+            //cus.Account.Transfer(cus.Account, AccountType.Current, 500, DateTime.Now, "Your balance should increade by 500");
+
+            //Assert
+            Assert.Throws<AccessViolationException>(
+                ()=> cus.Account.Transfer(cus.Account, AccountType.Current, 500, DateTime.Now, "Your balance should increade by 500")
+                );
+        }
+
+        [Test]
         public void MinimumBalance()// this is testing to see if this method will throw an error if you try to withdraw below the minimum balance.
         {
             //Arrange
@@ -109,21 +126,12 @@ namespace BankAppTest
             //Arrange
             var cus3 = new Customer("David", "david@mail.com");
             var sut = new BankAccount(AccountType.Savings, 2000, cus3);
-
+            //act
             var name = "David";
-            //var cus2 = new Customer("Seun", "seun@mail");
-            //var sut2 = new BankAccount(AccountType.Current, 2000, cus2);
-            //Act
-            //for (int i = 0; i < Banks.accounts.Count; i++)
-            //{
-            //    Console.WriteLine(Banks.accounts[i].Owner.Name);
-            //    Console.WriteLine(Banks.accounts[i].Number);
-            //    Console.WriteLine(Banks.accounts[i].Owner.email);
-
-               
-            //}
+           
             Assert.That(name, Is.EqualTo(Banks.accounts[0].Owner.Name));
         }
+
         [Test]
         public void TestforLogging()
         {
@@ -133,6 +141,17 @@ namespace BankAppTest
 
             //Assert
             Assert.That(sut, Is.Not.EqualTo(null));
+        }
+
+        [Test]
+        public void TestforLogout()
+        {
+            //Arrange
+            Session.Register("sola", "sola@mail.com", "sola", "12345", AccountType.Savings, 2000);
+            Session.Logout();
+
+            //Assert
+            Assert.IsFalse(Equals(LoggingDetails.Email));
         }
     }
 }
