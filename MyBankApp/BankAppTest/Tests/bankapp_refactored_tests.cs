@@ -121,7 +121,7 @@ namespace BankAppTest
                 );
         }
         [Test]
-        public void TestForCustomerReg()
+        public void TestForCustomerReg()// this is testing to see if the customer details is collected and accessible.
         {
             //Arrange
             var cus3 = new Customer("David", "david@mail.com");
@@ -133,7 +133,7 @@ namespace BankAppTest
         }
 
         [Test]
-        public void TestforLogging()
+        public void TestforLogging()// testing to see if the the logging is working
         {
             //Arrange
             Session.Register("sola", "sola@mail.com", "sola", "12345", AccountType.Savings, 2000);
@@ -144,7 +144,7 @@ namespace BankAppTest
         }
 
         [Test]
-        public void TestforLogout()
+        public void TestforLogout()// testing to see if it returns null after logging out.
         {
             //Arrange
             Session.Register("sola", "sola@mail.com", "sola", "12345", AccountType.Savings, 2000);
