@@ -11,31 +11,38 @@ namespace MyBankApp
     {
         static void Main(string[] args)
         {
-            var cus = new Customer("David", "david@mail.com");
-            var sut = new BankAccount(AccountType.Savings, 2000, cus);
-            cus.Account.MakeDeposit(200, DateTime.Now, "hdbjhdbj");
-            //Console.WriteLine(cus.Account.balance);
+            var customer = new Customer("Adeyemi", "adeyemi@mail.com");
+            var customerAct = new BankAccount(AccountType.Current, 10000, customer);
+
+            Console.WriteLine(customer.Account.balance);
+
+            customer.Account.MakeWithdrawal(9100, AccountType.Current, DateTime.Now, "throw an error");
+
+            //var cus = new Customer("David", "david@mail.com");
+            //var sut = new BankAccount(AccountType.Savings, 2000, cus);
+            //cus.Account.MakeDeposit(200, DateTime.Now, "hdbjhdbj");
+            ////Console.WriteLine(cus.Account.balance);
 
 
-            var cus2 = new Customer("Seun", "seun@mail");
-            var sut2 = new BankAccount(AccountType.Current, 2000, cus2);
+            //var cus2 = new Customer("Seun", "seun@mail");
+            //var sut2 = new BankAccount(AccountType.Current, 2000, cus2);
            // Console.WriteLine(cus2.Account.balance);
            // Console.WriteLine(cus.Account.balance);
 
-            cus.Account.Transfer(cus2.Account, AccountType.Current, 500, DateTime.Now, "testing");
-            Console.WriteLine(cus2.Account.balance);
-            Console.WriteLine(cus.Account.balance);
+            //cus.Account.Transfer(cus2.Account, AccountType.Current, 500, DateTime.Now, "testing");
+            //Console.WriteLine(cus2.Account.balance);
+            //Console.WriteLine(cus.Account.balance);
 
 
-            for (int i = 0; i < Banks.accounts.Count; i++)
-            {
-                Console.WriteLine(Banks.accounts[i].Owner.Name);
-                Console.WriteLine(Banks.accounts[i].Number);
-                Console.WriteLine(Banks.accounts[i].Owner.email);
-                Console.WriteLine();
-                Console.WriteLine();
+            //for (int i = 0; i < Banks.accounts.Count; i++)
+            //{
+            //    Console.WriteLine(Banks.accounts[i].Owner.Name);
+            //    Console.WriteLine(Banks.accounts[i].Number);
+            //    Console.WriteLine(Banks.accounts[i].Owner.email);
+            //    Console.WriteLine();
+            //    Console.WriteLine();
 
-            }
+            //}
 
 
             //Console.WriteLine(cus.Account.balance);

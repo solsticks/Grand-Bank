@@ -106,7 +106,7 @@ namespace BankAppTest
         }
 
         [Test]
-        public void MinimumBalance()// this is testing to see if this method will throw an error if you try to withdraw below the minimum balance.
+        public void MinimumBalance_Test_for_savingsAccount()// this is testing to see if this method will throw an error if you try to withdraw below the minimum balance.
         {
             //Arrange
             var cus = new Customer("David", "david@mail.com");
@@ -120,6 +120,23 @@ namespace BankAppTest
                 ()=> cus.Account.MakeWithdrawal(1910, AccountType.Savings, DateTime.Now, "You should have an error")
                 );
         }
+
+        [Test]
+        public void MinimumBalance_Test_for_CurrentAccount()// this is testing to see if this method will throw an error if you try to withdraw below the minimum balance.
+        {
+            //Arrange
+            var cus = new Customer("Fred", "fred@mail.com");
+            var sut = new BankAccount(AccountType.Current, 2000, cus);
+
+
+            //Act
+            //cus.Account.MakeWithdrawal(1910, AccountType.Savings, DateTime.Now, "You should have an error");
+            //Assert
+            Assert.Throws<InvalidOperationException>(
+                () => cus.Account.MakeWithdrawal(1100, AccountType.Current, DateTime.Now, "You should have an error")
+                );
+        }
+
         [Test]
         public void TestForCustomerReg()// this is testing to see if the customer details is collected and accessible.
         {
@@ -152,6 +169,22 @@ namespace BankAppTest
 
             //Assert
             Assert.IsFalse(Equals(LoggingDetails.Email));
+        }
+
+        [Test]
+        public void Transactions()// this is testing to see if this method will throw an error if you try to withdraw below the minimum balance.
+        {
+            //Arrange
+            var cus = new Customer("David", "david@mail.com");
+            var sut = new BankAccount(AccountType.Savings, 2000, cus);
+
+            var cus2 = new Customer("Davidt", "david@mail.com");
+            var sut2 = new BankAccount(AccountType.Current, 2000, cus);
+
+            //Act
+            var count = Banks.allTransactions.Count;
+            //Assert
+            Assert.That(count, Is.GreaterThan(1));
         }
     }
 }
